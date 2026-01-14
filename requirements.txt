@@ -7,3 +7,7 @@ python-dotenv
 langchain-groq
 beautifulsoup4
 faiss-cpu
+wikipedia
+arxiv
+pymupdf
+langchain-text-splitters
