@@ -11,3 +11,4 @@ wikipedia
 arxiv
 pymupdf
 langchain-text-splitters
+langchain-classic
