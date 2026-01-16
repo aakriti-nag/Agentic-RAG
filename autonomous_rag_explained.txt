@@ -1,0 +1,179 @@
+AUTONOMOUS RAG IN LANGGRAPH – SIMPLE EXPLANATION
+
+==================================================
+WHAT IS AUTONOMOUS RAG?
+==================================================
+
+Autonomous RAG (Agentic RAG) means the AI model decides
+on its own when it needs external knowledge.
+
+Instead of always searching documents:
+• The model first thinks
+• Then decides if retrieval is needed
+• Can retrieve multiple times
+• Can refine its own questions
+• Stops only when confident
+
+So retrieval becomes *intelligent*, not forced.
+
+
+==================================================
+WHY LANGGRAPH?
+==================================================
+
+LangGraph allows you to build workflows as graphs.
+
+Each step = a node  
+Connections = edges  
+
+This makes it perfect for:
+• Loops
+• Decision making
+• Tool calling
+• Memory
+• Human-in-the-loop systems
+
+
+==================================================
+CORE COMPONENTS
+==================================================
+
+1) STATE
+----------------------------------
+State stores everything the system remembers:
+• User messages
+• AI replies
+• Retrieved documents
+• Metadata
+
+Think of it as the "brain memory".
+
+
+2) AGENT (LLM NODE)
+----------------------------------
+This is the main decision maker.
+
+It decides:
+• Can I answer directly?
+• Do I need to search?
+• Should I search again?
+• Is the context enough?
+
+This is what makes it "autonomous".
+
+
+3) RETRIEVER TOOL
+----------------------------------
+This connects to:
+• Vector databases
+• PDFs
+• Internal documents
+• Web search
+
+The agent calls it only when needed.
+
+
+4) ROUTING LOGIC
+----------------------------------
+After each response, system checks:
+
+IF agent requested tools → go to retriever  
+ELSE → finish and answer user  
+
+This enables looping behavior.
+
+
+5) LOOPING MECHANISM
+----------------------------------
+Flow looks like:
+
+User → Agent  
+Agent → Tool (if needed)  
+Tool → Agent  
+Agent → Tool (again if needed)  
+Agent → Final Answer  
+
+This loop continues until satisfied.
+
+
+==================================================
+MEMORY (THREADS)
+==================================================
+
+LangGraph supports long-term memory using threads.
+
+This allows:
+• Multi-turn conversations
+• Resuming later
+• Saving progress
+• Debugging past states
+
+Each conversation has a thread_id.
+
+
+==================================================
+OPTIONAL INTELLIGENCE LAYERS
+==================================================
+
+You can add:
+
+• Answer judge
+  - Checks if answer is grounded
+• Query rewriter
+  - Improves search queries
+• Hallucination detector
+• Confidence scorer
+
+
+==================================================
+HOW IT DIFFERS FROM NORMAL RAG
+==================================================
+
+NORMAL RAG:
+• Always retrieves
+• Single search
+• No reasoning
+
+AUTONOMOUS RAG:
+• Thinks first
+• Retrieves only if needed
+• Can retry
+• Self-correcting
+• More accurate
+
+
+==================================================
+REAL-WORLD USE CASES
+==================================================
+
+• Chatbots over PDFs
+• Enterprise knowledge assistants
+• Customer support bots
+• Research agents
+• Coding copilots
+• Legal document search
+
+
+==================================================
+BENEFITS
+==================================================
+
+✔ Higher accuracy  
+✔ Lower hallucination  
+✔ Less unnecessary retrieval  
+✔ Smarter reasoning  
+✔ Production-ready workflows  
+
+
+==================================================
+SUMMARY
+==================================================
+
+Autonomous RAG =
+
+LLM + Decision making + Retrieval + Looping + Memory
+
+LangGraph provides the perfect structure
+to build this system cleanly.
+
+==================================================
