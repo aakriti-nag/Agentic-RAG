@@ -1,0 +1,179 @@
+
+TRANSFORMER VARIANTS FOR PRODUCTION
+
+1. EfficientFormer
+Goal: Edge / mobile deployment
+How it works:
+- Hybrid CNN + Transformer
+- Lightweight attention and depth-wise convolutions
+- Optimized for low latency and low memory
+Use cases:
+- Mobile vision tasks
+- Real-time inference
+
+2. Longformer
+Goal: Handle very long documents
+Key idea:
+- Sliding window attention
+- Global attention tokens
+Complexity:
+- O(n) instead of O(n²)
+Use cases:
+- Legal documents
+- Research papers
+- Long conversations
+
+3. Reformer
+Goal: Reduce memory and compute
+Techniques:
+- LSH attention
+- Reversible layers
+Benefits:
+- Major memory savings
+- Supports long sequences
+Tradeoffs:
+- Slight accuracy loss
+- Harder debugging
+
+4. Performer
+Goal: Linear attention
+How:
+- Kernel approximation of softmax attention
+Complexity:
+- O(n)
+Use cases:
+- Streaming models
+- Long sequences
+
+5. Linformer
+Goal: Low-rank attention
+How:
+- Projects key and value matrices
+Benefits:
+- Faster inference
+- Lower memory
+Downside:
+- Possible information loss
+
+6. BigBird
+Goal: Long context with theoretical guarantees
+Attention:
+- Random
+- Local
+- Global
+Use:
+- Long document QA
+- Google search models
+
+7. FlashAttention
+Goal: Faster GPU attention
+How:
+- Kernel fusion
+- Avoids storing full attention matrix
+Result:
+- 2-4x speedup
+- Reduced GPU memory
+
+8. Sparse Transformers
+Goal: Reduce quadratic cost
+How:
+- Attend to selected tokens
+Patterns:
+- Block sparse
+- Strided
+
+9. MobileBERT
+Goal: On-device NLP
+How:
+- Distilled BERT
+- Narrow and deep architecture
+
+10. DistilBERT
+Goal: Smaller BERT
+How:
+- Knowledge distillation
+Benefits:
+- 40% smaller
+- 60% faster
+
+11. ALBERT
+Goal: Parameter reduction
+Tricks:
+- Factorized embeddings
+- Weight sharing
+
+12. DeBERTa
+Goal: Accuracy and efficiency
+Innovation:
+- Disentangled attention
+- Better position encoding
+
+13. Funnel Transformer
+Goal: Faster inference
+How:
+- Sequence length downsampling
+
+14. RWKV
+Goal: Streaming inference
+How:
+- RNN + Transformer hybrid
+Use:
+- Chatbots
+- Real-time systems
+
+15. Mamba
+Goal: Replace attention
+How:
+- State Space Models
+Benefit:
+- Linear time
+- Very fast inference
+
+16. Quantized Transformers
+Goal: Reduce model size
+Techniques:
+- 4-bit, 8-bit quantization
+
+17. Mixture of Experts
+Goal: Large models cheaply
+How:
+- Activate few experts per token
+Examples:
+- Mixtral
+- Switch Transformer
+
+18. RetNet
+Goal: Streaming and long memory
+How:
+- Retention mechanism
+
+19. SqueezeBERT
+Goal: Fast BERT
+How:
+- Grouped convolutions
+
+20. Vision Edge Transformers
+Examples:
+- MobileViT
+- TinyViT
+- LeViT
+- FastViT
+
+Summary Categories
+Long context:
+- Longformer, BigBird, Reformer, Performer
+
+Edge/mobile:
+- EfficientFormer, MobileBERT, SqueezeBERT
+
+Speed optimizations:
+- FlashAttention, Funnel, Quantization
+
+Memory efficient:
+- Linformer, ALBERT
+
+New architectures:
+- RWKV, Mamba, RetNet
+
+Large scale:
+- MoE, Mixtral, Switch
