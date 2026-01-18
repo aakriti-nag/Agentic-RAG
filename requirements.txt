@@ -13,3 +13,5 @@ pymupdf
 langchain-text-splitters
 langchain-classic
 langchain-tavily
+langgraph-supervisor
+langchain-experimental
