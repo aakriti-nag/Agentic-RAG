@@ -10,6 +10,7 @@ faiss-cpu
 wikipedia
 arxiv
 pymupdf
+langchain-embeddings
 langchain-text-splitters
 langchain-classic
 langchain-tavily
